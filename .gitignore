@@ -332,3 +332,9 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+/KallistoGUI/nbproject/private/
+/KallistoGUI/build/
+/KallistoGUI/dist/
+/JavaApplication2/nbproject/private/
+/JavaApplication2/build/
+/mavenproject1/target/
