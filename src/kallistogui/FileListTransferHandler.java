@@ -16,6 +16,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 public class FileListTransferHandler extends TransferHandler {
+    private int[] indices = null;
+            
     public int getSourceActions(JComponent c){
         return TransferHandler.COPY_OR_MOVE;
     }
@@ -24,7 +26,7 @@ public class FileListTransferHandler extends TransferHandler {
     public Transferable createTransferable(JComponent c) {
         JList<FileListItem> source = (JList<FileListItem>) c;
         var myList = source.getSelectedValuesList();
-        
+        indices = source.getSelectedIndices();
         StringBuffer infoBuff = new StringBuffer();
         infoBuff.append("<info>");
         for(FileListItem item: myList){
@@ -44,7 +46,7 @@ public class FileListTransferHandler extends TransferHandler {
         }        
         
         JList<FileListItem> list = (JList<FileListItem>) info.getComponent();
-        DefaultListModel<FileListItem> listModel = (DefaultListModel<FileListItem>) list.getModel();
+        DefaultListModel listModel = (DefaultListModel) list.getModel();
         
         
         Transferable t = info.getTransferable();
@@ -74,10 +76,11 @@ public class FileListTransferHandler extends TransferHandler {
             }
         }
         
+        list.setModel(listModel);
         return true;
     }
     
-        private static Document convertStringToXMLDocument(String xmlString)
+    private static Document convertStringToXMLDocument(String xmlString)
     {
         //Parser that produces DOM object trees from XML content
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -99,4 +102,17 @@ public class FileListTransferHandler extends TransferHandler {
         }
         return null;
     }
+
+    protected void exportDone(JComponent c, Transferable info, int action) {
+        JList source = (JList)c;
+        DefaultListModel listModel  = (DefaultListModel)source.getModel();
+
+        if (action == TransferHandler.MOVE) {
+            for (int i = indices.length - 1; i >= 0; i--) {
+                listModel.remove(indices[i]);
+            }
+        }
+        indices = null;
+    }
+    
 }

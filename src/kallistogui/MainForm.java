@@ -1,5 +1,7 @@
 package kallistogui;
 
+import javax.swing.DefaultListModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -47,11 +49,6 @@ public class MainForm extends javax.swing.JFrame {
 
         fileListPanel.setName(""); // NOI18N
 
-        listSourceFile.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listSourceFile.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listSourceFile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listSourceFile.setDragEnabled(true);
@@ -59,21 +56,11 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listSourceFile);
         listSourceFile.getAccessibleContext().setAccessibleParent(fileListPanel);
 
-        listTreatmentGroup.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listTreatmentGroup.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listTreatmentGroup.setDragEnabled(true);
         listTreatmentGroup.setDropMode(javax.swing.DropMode.INSERT);
         jScrollPane2.setViewportView(listTreatmentGroup);
 
-        listControlGroup.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listControlGroup.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listControlGroup.setDragEnabled(true);
         listControlGroup.setDropMode(javax.swing.DropMode.INSERT);
@@ -245,9 +232,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JList<String> listControlGroup;
-    private javax.swing.JList<String> listSourceFile;
-    private javax.swing.JList<String> listTreatmentGroup;
+    private javax.swing.JList<FileListItem> listControlGroup;
+    private javax.swing.JList<FileListItem> listSourceFile;
+    private javax.swing.JList<FileListItem> listTreatmentGroup;
     private javax.swing.JPanel pIndex;
     private javax.swing.JPanel pOtherParms;
     // End of variables declaration//GEN-END:variables
@@ -256,5 +243,24 @@ public class MainForm extends javax.swing.JFrame {
         this.listSourceFile.setTransferHandler(new FileListTransferHandler());
         this.listControlGroup.setTransferHandler(new FileListTransferHandler());
         this.listTreatmentGroup.setTransferHandler(new FileListTransferHandler());
+       
+        DefaultListModel listModel = new DefaultListModel();
+        listModel.addElement(new FileListItem("abs","bbs"));
+        listModel.addElement(new FileListItem("abs2","bbs2"));        
+        this.listSourceFile.setModel(listModel);
+
+        this.listControlGroup.setModel(new DefaultListModel());
+        this.listTreatmentGroup.setModel(new DefaultListModel());
     }
+    
+//    private javax.swing.AbstractListModel<FileListItem> getInitFileList(){
+//        FileListItem item1 = new FileListItem("item1", "item1 loc");
+//        FileListItem item2 = new FileListItem("item22", "item1 loc");
+//        FileListItem item3 = new FileListItem("item333", "item1 loc");
+//        FileListItem item4 = new FileListItem("item4", "item1 loc");
+//        FileListItem item5 = new FileListItem("item5", "item1 loc");
+//        
+//        FileListItem[] iList = {item1,item2,item3,item4,item5};
+//        return iList;
+//    }
 }
