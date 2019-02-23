@@ -1,6 +1,9 @@
 package kallistogui;
 
+import java.io.File;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -184,8 +187,18 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    final JFileChooser FChooser = new JFileChooser();
+    
     private void btnChooseDataFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseDataFilesActionPerformed
-        
+        int returnVal = FChooser.showOpenDialog(this);
+        if(returnVal == JFileChooser.APPROVE_OPTION){
+            var model = (DefaultListModel) this.listSourceFile.getModel();
+            File[] selectedFiles = FChooser.getSelectedFiles();
+            for(int i = 0; i < selectedFiles.length; i++){
+                var f = selectedFiles[i];
+                model.addElement(new FileListItem(f.getName(),f.getAbsolutePath()));
+            }
+        }
     }//GEN-LAST:event_btnChooseDataFilesActionPerformed
 
     /**
@@ -251,16 +264,12 @@ public class MainForm extends javax.swing.JFrame {
 
         this.listControlGroup.setModel(new DefaultListModel());
         this.listTreatmentGroup.setModel(new DefaultListModel());
+        
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Sequence File", ".fa", ".fastq");
+        FChooser.setFileFilter(filter);
+        FChooser.setMultiSelectionEnabled(true);
+        FChooser.setToolTipText("Add sequnce files");
+        FChooser.setDialogTitle("Choose File");
     }
-    
-//    private javax.swing.AbstractListModel<FileListItem> getInitFileList(){
-//        FileListItem item1 = new FileListItem("item1", "item1 loc");
-//        FileListItem item2 = new FileListItem("item22", "item1 loc");
-//        FileListItem item3 = new FileListItem("item333", "item1 loc");
-//        FileListItem item4 = new FileListItem("item4", "item1 loc");
-//        FileListItem item5 = new FileListItem("item5", "item1 loc");
-//        
-//        FileListItem[] iList = {item1,item2,item3,item4,item5};
-//        return iList;
-//    }
+
 }
