@@ -176,6 +176,11 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         btStart.setText("Start Analysis");
+        btStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btStartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pOtherParmsLayout = new javax.swing.GroupLayout(pOtherParms);
         pOtherParms.setLayout(pOtherParmsLayout);
@@ -243,6 +248,13 @@ public class MainForm extends javax.swing.JFrame {
     private void btAddIndexFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddIndexFileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btAddIndexFileActionPerformed
+
+    private void btStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btStartActionPerformed
+        // TODO add your handling code here:
+        if(this.cbHaveIndexFile != true){
+            
+        }
+    }//GEN-LAST:event_btStartActionPerformed
 
     /**
      * @param args the command line arguments
