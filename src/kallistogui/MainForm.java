@@ -30,17 +30,22 @@ public class MainForm extends javax.swing.JFrame {
     private void initComponents() {
 
         fileListPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        pSourceFile = new javax.swing.JScrollPane();
         listSourceFile = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        pTreatment = new javax.swing.JScrollPane();
         listTreatmentGroup = new javax.swing.JList<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        pControlGroup = new javax.swing.JScrollPane();
         listControlGroup = new javax.swing.JList<>();
-        FileManagePanel = new javax.swing.JPanel();
+        pSeqFileManage = new javax.swing.JPanel();
         btnChooseDataFiles = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cbDoubleEnd = new javax.swing.JCheckBox();
         pIndex = new javax.swing.JPanel();
+        ddlSpecies = new javax.swing.JComboBox<>();
+        cbHaveIndexFile = new javax.swing.JCheckBox();
+        btAddIndexFile = new javax.swing.JButton();
+        cbHaveSpeiceAnnotationFile = new javax.swing.JCheckBox();
         pOtherParms = new javax.swing.JPanel();
+        btStart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,18 +55,18 @@ public class MainForm extends javax.swing.JFrame {
         listSourceFile.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listSourceFile.setDragEnabled(true);
         listSourceFile.setDropMode(javax.swing.DropMode.INSERT);
-        jScrollPane1.setViewportView(listSourceFile);
+        pSourceFile.setViewportView(listSourceFile);
         listSourceFile.getAccessibleContext().setAccessibleParent(fileListPanel);
 
         listTreatmentGroup.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listTreatmentGroup.setDragEnabled(true);
         listTreatmentGroup.setDropMode(javax.swing.DropMode.INSERT);
-        jScrollPane2.setViewportView(listTreatmentGroup);
+        pTreatment.setViewportView(listTreatmentGroup);
 
         listControlGroup.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         listControlGroup.setDragEnabled(true);
         listControlGroup.setDropMode(javax.swing.DropMode.INSERT);
-        jScrollPane3.setViewportView(listControlGroup);
+        pControlGroup.setViewportView(listControlGroup);
 
         javax.swing.GroupLayout fileListPanelLayout = new javax.swing.GroupLayout(fileListPanel);
         fileListPanel.setLayout(fileListPanelLayout);
@@ -69,14 +74,14 @@ public class MainForm extends javax.swing.JFrame {
             fileListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fileListPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pSourceFile, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 280, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(fileListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(fileListPanelLayout.createSequentialGroup()
                     .addGap(242, 242, 242)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pControlGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(243, Short.MAX_VALUE)))
         );
         fileListPanelLayout.setVerticalGroup(
@@ -84,13 +89,13 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fileListPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(fileListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(pTreatment, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                    .addComponent(pSourceFile))
                 .addContainerGap())
             .addGroup(fileListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(fileListPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                    .addComponent(pControlGroup, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -102,50 +107,90 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Double end");
-        jCheckBox1.setToolTipText("Check if your sequence data is double end");
+        cbDoubleEnd.setText("Double end");
+        cbDoubleEnd.setToolTipText("Check if your sequence data is double end");
 
-        javax.swing.GroupLayout FileManagePanelLayout = new javax.swing.GroupLayout(FileManagePanel);
-        FileManagePanel.setLayout(FileManagePanelLayout);
-        FileManagePanelLayout.setHorizontalGroup(
-            FileManagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FileManagePanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout pSeqFileManageLayout = new javax.swing.GroupLayout(pSeqFileManage);
+        pSeqFileManage.setLayout(pSeqFileManageLayout);
+        pSeqFileManageLayout.setHorizontalGroup(
+            pSeqFileManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSeqFileManageLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnChooseDataFiles, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbDoubleEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        FileManagePanelLayout.setVerticalGroup(
-            FileManagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FileManagePanelLayout.createSequentialGroup()
+        pSeqFileManageLayout.setVerticalGroup(
+            pSeqFileManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pSeqFileManageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(FileManagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pSeqFileManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChooseDataFiles)
-                    .addComponent(jCheckBox1))
+                    .addComponent(cbDoubleEnd))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        ddlSpecies.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbHaveIndexFile.setText("I Have An Index");
+
+        btAddIndexFile.setText("Add Index File");
+        btAddIndexFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddIndexFileActionPerformed(evt);
+            }
+        });
+
+        cbHaveSpeiceAnnotationFile.setText("I have the annotation");
 
         javax.swing.GroupLayout pIndexLayout = new javax.swing.GroupLayout(pIndex);
         pIndex.setLayout(pIndexLayout);
         pIndexLayout.setHorizontalGroup(
             pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 185, Short.MAX_VALUE)
+            .addGroup(pIndexLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pIndexLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btAddIndexFile, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pIndexLayout.createSequentialGroup()
+                        .addGroup(pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbHaveSpeiceAnnotationFile, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbHaveIndexFile, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ddlSpecies, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 14, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pIndexLayout.setVerticalGroup(
             pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 94, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pIndexLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cbHaveIndexFile)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbHaveSpeiceAnnotationFile)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ddlSpecies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btAddIndexFile))
         );
+
+        btStart.setText("Start Analysis");
 
         javax.swing.GroupLayout pOtherParmsLayout = new javax.swing.GroupLayout(pOtherParms);
         pOtherParms.setLayout(pOtherParmsLayout);
         pOtherParmsLayout.setHorizontalGroup(
             pOtherParmsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 181, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pOtherParmsLayout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addComponent(btStart)
+                .addGap(21, 21, 21))
         );
         pOtherParmsLayout.setVerticalGroup(
             pOtherParmsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pOtherParmsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btStart))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,7 +203,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(FileManagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pSeqFileManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(pIndex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
@@ -172,7 +217,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(fileListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(FileManagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pSeqFileManage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pIndex, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pOtherParms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(19, 19, 19))
@@ -194,6 +239,10 @@ public class MainForm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnChooseDataFilesActionPerformed
+
+    private void btAddIndexFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddIndexFileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btAddIndexFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,18 +281,23 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel FileManagePanel;
+    private javax.swing.JButton btAddIndexFile;
+    private javax.swing.JButton btStart;
     private javax.swing.JButton btnChooseDataFiles;
+    private javax.swing.JCheckBox cbDoubleEnd;
+    private javax.swing.JCheckBox cbHaveIndexFile;
+    private javax.swing.JCheckBox cbHaveSpeiceAnnotationFile;
+    private javax.swing.JComboBox<String> ddlSpecies;
     private javax.swing.JPanel fileListPanel;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JList<FileListItem> listControlGroup;
     private javax.swing.JList<FileListItem> listSourceFile;
     private javax.swing.JList<FileListItem> listTreatmentGroup;
+    private javax.swing.JScrollPane pControlGroup;
     private javax.swing.JPanel pIndex;
     private javax.swing.JPanel pOtherParms;
+    private javax.swing.JPanel pSeqFileManage;
+    private javax.swing.JScrollPane pSourceFile;
+    private javax.swing.JScrollPane pTreatment;
     // End of variables declaration//GEN-END:variables
 
     private void initSelfCode() {
