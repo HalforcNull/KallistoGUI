@@ -265,5 +265,4 @@ public class MainForm extends javax.swing.JFrame {
         FChooser.setToolTipText("Add sequnce files");
         FChooser.setDialogTitle("Choose File");
     }
-
 }
