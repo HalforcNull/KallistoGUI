@@ -5,10 +5,17 @@
  */
 package kallistogui;
 
+import java.util.List;
+
 /**
  *
  * @author runan.yao
  */
 public class WindowsOperationRunner extends OperationRunner {
+
+    @Override
+    public void runOperations(List<Operation> opList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

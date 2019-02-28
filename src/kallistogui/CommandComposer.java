@@ -10,8 +10,17 @@ package kallistogui;
  * @author Halforc
  */
 public class CommandComposer {
-    String ComposeIndexCommand(){
-        return "Not Impelement";
+    
+    String ComposeIndexCommand(String annotationFileName, String idxFileName ){
+        annotationFileName = annotationFileName.replaceAll(" ", "\\ ");
+        idxFileName = idxFileName.replaceAll(" ", "\\ ");
+        return "kallisto index -i " + idxFileName + " " + annotationFileName;
+    }
+    
+    String ComposeIndexCommand(String annotationFileName, String idxFileName, int kmer){
+        annotationFileName = annotationFileName.replaceAll(" ", "\\ ");
+        idxFileName = idxFileName.replaceAll(" ", "\\ ");
+        return "kallisto index -i " + idxFileName + " -k " + kmer + " " + annotationFileName;
     }
     
     String ComposeQuantCommand(){

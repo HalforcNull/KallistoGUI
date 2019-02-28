@@ -32,6 +32,7 @@ public class OperationsManager {
                 this.Runner = new WindowsOperationRunner();
                 break;
             case MacOS:
+                
                 break;
             case Ubuntu:
                 break;
