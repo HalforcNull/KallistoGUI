@@ -5,6 +5,7 @@
  */
 package kallistogui;
 
+import java.util.List;
 /**
  *
  * @author Halforc
@@ -23,7 +24,19 @@ public class CommandComposer {
         return "kallisto index -i " + idxFileName + " -k " + kmer + " " + annotationFileName;
     }
     
-    String ComposeQuantCommand(){
-        return "Not Impelement";
+    String ComposeQuantCommand(String idxFile, String outputFolder, boolean isSingle, List<String> seqFiles ){
+        if(!isSingle && seqFiles.size()%2 != 0){
+            return "";
+        }
+        
+        if( isSingle ){
+            return "kallisto quant -i " + idxFile + " -o " + outputFolder + " --single " + String.join(" ", seqFiles);
+        }else{
+            return "kallisto quant -i " + idxFile + " -o " + outputFolder + " " + String.join(" ", seqFiles);
+        }        
+    }
+    
+    String ComposeDownloadCommand(){
+        return "";
     }
 }
