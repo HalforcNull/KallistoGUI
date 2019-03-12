@@ -78,7 +78,12 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        ddlSpecies.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ddlSpecies.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Specise 1", "Specise 2", "Specise 3", "Specise 4" }));
+        ddlSpecies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ddlSpeciesActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Please select one specise");
 
@@ -91,7 +96,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(pNoIndexSelectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ddlSpecies, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pNoIndexSelectionLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         pNoIndexSelectionLayout.setVerticalGroup(
@@ -101,7 +106,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ddlSpecies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btAddIndexFile.setText("Add Index File");
@@ -115,12 +120,12 @@ public class MainForm extends javax.swing.JFrame {
         pHaveIndex.setLayout(pHaveIndexLayout);
         pHaveIndexLayout.setHorizontalGroup(
             pHaveIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
+            .addGap(0, 295, Short.MAX_VALUE)
             .addGroup(pHaveIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pHaveIndexLayout.createSequentialGroup()
                     .addGap(83, 83, 83)
                     .addComponent(btAddIndexFile)
-                    .addContainerGap(83, Short.MAX_VALUE)))
+                    .addContainerGap(109, Short.MAX_VALUE)))
         );
         pHaveIndexLayout.setVerticalGroup(
             pHaveIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,9 +143,6 @@ public class MainForm extends javax.swing.JFrame {
         pIndex.setLayout(pIndexLayout);
         pIndexLayout.setHorizontalGroup(
             pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pIndexLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pNoIndexSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(pIndexLayout.createSequentialGroup()
                 .addGroup(pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pIndexLayout.createSequentialGroup()
@@ -150,11 +152,9 @@ public class MainForm extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(lbIndexFileLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(48, Short.MAX_VALUE))
+            .addComponent(pNoIndexSelection, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pIndexLayout.createSequentialGroup()
-                    .addGap(69, 69, 69)
-                    .addComponent(pHaveIndex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(26, Short.MAX_VALUE)))
+                .addComponent(pHaveIndex, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pIndexLayout.setVerticalGroup(
             pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,8 +162,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(cbHaveIndexFile, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(pNoIndexSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pNoIndexSelection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lbIndexFileLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(pIndexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,6 +318,10 @@ public class MainForm extends javax.swing.JFrame {
         this.pHaveIndex.setVisible(this.cbHaveIndexFile.isSelected());
         this.pNoIndexSelection.setVisible(!this.cbHaveIndexFile.isSelected());
     }//GEN-LAST:event_cbHaveIndexFileActionPerformed
+
+    private void ddlSpeciesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ddlSpeciesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ddlSpeciesActionPerformed
 
     /**
      * @param args the command line arguments
